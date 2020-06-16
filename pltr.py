@@ -36,7 +36,8 @@ for i in data_unique:
 	for j in data_raw:
 		if i == j:
 			c += 1
-	point_frequency.append(str(c))
+	point_frequency.append(c)
+	#TODO add scaling factor to point frequency
 
 xu, yu, zu = [], [], []
 # split points by axes
@@ -51,10 +52,12 @@ for i in data_unique:
 # make scatterplot
 fig = plt.figure()
 ax = Axes3D(fig)
-ax.scatter(xu, yu, zu, s=100)
+ax.scatter(xu, yu, zu, s=point_frequency)
 
+"""
 for x, y, z, i in zip(xu, yu, zu, point_frequency):
 	ax.text(x, y, z, i, size=15)
+"""
 
 # set axis limits
 ax.set_xlim(-1, 1)
