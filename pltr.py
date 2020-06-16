@@ -2,10 +2,14 @@ import csv
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+from os import chdir
 
 
+# navigate file structure
+chdir("csv_files")
 filename = input("file name:  ")
-label, xr, yr, zr = [], [], [], []
+
+xr, yr, zr = [], [], []
 
 # extract point values from csv
 with open(filename, newline="") as csvfile:
@@ -13,7 +17,6 @@ with open(filename, newline="") as csvfile:
 	header = next(reader)
 	if header != None:
 		for i in reader:
-			label.append(i[0])
 			xr.append(float(i[1]))
 			yr.append(float(i[2]))
 			zr.append(float(i[3]))
