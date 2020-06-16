@@ -2,7 +2,6 @@ import csv
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
-import random
 
 
 filename = input("file name:  ")
@@ -44,7 +43,7 @@ for i in data_unique:
 	zu.append(i[2])
 
 # assign custom point marker weights
-n = len(data_raw)
+# n = len(data_raw)
 
 # make scatterplot
 fig = plt.figure()
@@ -52,7 +51,7 @@ ax = Axes3D(fig)
 ax.scatter(xu, yu, zu, s=100)
 
 for x, y, z, i in zip(xu, yu, zu, point_frequency):
-	ax.text(x, y, z, i, size=20)
+	ax.text(x, y, z, i, size=15)
 
 # set axis limits
 ax.set_xlim(-1, 1)
